@@ -1,3 +1,4 @@
+import { Header } from "@/components/header"
 import { createClient } from "@/utils/supabase/server"
 
 export default async function Home() {
@@ -5,6 +6,8 @@ export default async function Home() {
   const { data, error, status } = await supabase.from('project').select()
 
   return (
-    <div className=""></div>
+    <>
+      <Header />
+    </>
   )
 }
