@@ -1,10 +1,15 @@
 'use client'
 
-import { Copy, Laptop, MapPin, Phone } from "lucide-react"
+import { Copy, Download, Laptop, MapPin, Phone } from "lucide-react"
 
 export function Header(){
   async function copyEmailToClipboard(email: string){
-    await navigator.clipboard.writeText(email)
+    try {
+      await navigator.clipboard.writeText(email)
+      alert(`E-mail "${email}" foi copiado com sucesso`)
+    } catch (error) {
+      alert(error)
+    }
   }
 
   return (
@@ -33,6 +38,10 @@ export function Header(){
             <a href='https://wa.me/5524998769562' target="_blank" className="flex items-center gap-2 text-sm font-medium text-zinc-700">
               <Phone className="size-4" />
               WhatsApp
+            </a>
+            <a href='./curriculum.pdf' download className="flex items-center gap-2 text-sm font-medium text-zinc-700">
+              <Download className="size-4" />
+              Curriculo
             </a>
           </div>
         </div>
