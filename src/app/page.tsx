@@ -32,24 +32,27 @@ export default async function Home() {
           <div className="w-52">
             <span className="font-semibold">Projetos</span>
           </div>
-          <div className="flex-1 flex items-center gap-4">
+          <div className="flex-1 flex items-center gap-4 overflow-hidden overflow-x-auto">
             {
               data?.map((item) => (
-                <div key={item.id} className="border w-80 rounded-xl">
-                  <img 
-                    src={`${item.image_url}`} 
-                    alt="Imagem do projeto" 
-                    className="h-52 w-full object-cover rounded-xl"
-                  />
-                  <div className="p-4 flex items-start justify-between">
-                    <div className="">
-                      <p className='text-sm font-semibold'>{item.title}</p>
-                      <span className="text-sm text-zinc-600">Front-end</span>
+                <div key={item.id} className="">
+                  <div className="border w-80 rounded-xl">
+                    <img 
+                      src={`${item.image_url}`} 
+                      alt="Imagem do projeto" 
+                      className="h-52 w-full object-cover rounded-xl"
+                    />
+                    <div className="p-4 flex items-start justify-between">
+                      <div className="">
+                        <p className='text-sm font-semibold'>{item.title}</p>
+                        <span className="text-sm text-zinc-600">Front-end</span>
+                      </div>
+                      <a href={item.link} target="_blank">
+                        <Link className='size-4' />
+                      </a>
                     </div>
-                    <a href={item.link} target="_blank">
-                      <Link className='size-4' />
-                    </a>
                   </div>
+
                 </div>
               ))
             }
